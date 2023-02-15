@@ -21,7 +21,7 @@ namespace BashView
         private readonly ShapeProcessor shapeProcessor;
         private int sliderValue;
 
-        public List<Item> Items { get; set; } = new List<Item>();
+        public List<Item> Items { get; set; }
         public ICommand One => new ActionCommand(OneAction);
         public ICommand Two => new ActionCommand(TwoAction);
 
@@ -136,6 +136,11 @@ namespace BashView
                 B = new Vector2(4, 4),
             };
             var cutShape = shapeProcessor.CutInternal(shape, rect);
+
+            Debug.WriteLine(JsonSerializer.Serialize(cutShape, new JsonSerializerOptions()
+            {
+                WriteIndented = true
+            }));
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

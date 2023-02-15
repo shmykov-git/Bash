@@ -5,6 +5,8 @@ namespace BashModel.Tools;
 
 public class ShapeProcessor
 {
+    // TODO: нужно доработать алгоритм для случая, когда обе точки отрезка лежат вне прямоугольника,
+    // TODO: но при этом отрезок пересекает прямоугольник
     public Shape CutInternal(Shape shape, Rect2 rect)
     {
         var polygons = new List<Polygon>();
@@ -20,7 +22,7 @@ public class ShapeProcessor
             });
         }
 
-        // TODO: polygon should contain 2 or more points
+        // TODO: check polygon contains 2 or more points
         foreach (var polygon in shape.Polygons)
         {
             var cutPoints = new List<Vector2>();
