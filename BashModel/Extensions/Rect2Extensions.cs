@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BashModel.Model;
+﻿using BashModel.Model;
 
 namespace BashModel.Extensions
 {
@@ -16,6 +11,15 @@ namespace BashModel.Extensions
 
             return min.X <= a.X && a.X <= max.X &&
                    min.Y <= a.Y && a.Y <= max.Y;
+        }
+
+        public static Rect2 Mult(this Rect2 rect, double mult)
+        {
+            return new Rect2()
+            {
+                A = new Vector2(rect.A.X * mult, rect.A.Y * mult),
+                B = new Vector2(rect.B.X * mult, rect.B.Y * mult)
+            };
         }
     }
 }

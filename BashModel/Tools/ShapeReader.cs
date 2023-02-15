@@ -9,7 +9,7 @@ using BashModel.Model;
 
 namespace BashModel.Tools
 {
-    public class PolygonReader
+    public class ShapeReader
     {
         public Shape ReadAsJson(string path)
         {

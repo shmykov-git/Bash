@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using BashMeta;
 using BashModel.Tools;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,7 +13,7 @@ namespace BashView
         static App()
         {
             IoC.Services
-                .AddTransient<PolygonReader>()
+                .AddTransient<ShapeReader>()
                 .AddTransient<ShapeProcessor>()
                 .AddTransient<MainViewModel>()
                 .AddTransient<MainWindow>();

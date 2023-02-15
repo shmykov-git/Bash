@@ -27,18 +27,34 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Canvas>
-            <Canvas Height="344" Width="460" Canvas.Left="27" Canvas.Top="58" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
-                <Canvas.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-5.251"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Canvas.RenderTransform>
-            </Canvas>
-        </Canvas>
+        <Viewbox Stretch="Uniform" Height="344" Width="460" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.1,0.1" Margin="23,41,0,0">
+            <Viewbox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-2.416"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Viewbox.RenderTransform>
+            <ItemsControl ItemsSource="{Binding Items}" Height="344" Width="460" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Background="WhiteSmoke" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.Resources>
+                    <DataTemplate DataType="{x:Type local:Item}">
+                        <Line
+                            X1="{Binding X1}" Y1="{Binding Y1}"
+                            X2="{Binding X2}" Y2="{Binding Y2}"
+                            Stroke="{Binding Brush}"
+                            StrokeThickness="{Binding Width}" />
+                    </DataTemplate>
+                </ItemsControl.Resources>
+            </ItemsControl>
+        </Viewbox>
+
+        <Slider HorizontalAlignment="Left" Margin="512,182,0,0" VerticalAlignment="Top" Width="254" Value="{Binding SliderValue, Mode=TwoWay}" />
 
     </Grid>
 </Window>
